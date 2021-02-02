@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
+from perguntas.models import Pergunta
 
 class Resposta(models.Model):
+    pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
     label = models.CharField(max_length=100)
     correta = models.BooleanField(default=False)
 
