@@ -2,6 +2,7 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.contrib import admin
 from rest_framework import routers
+from rest_framework.authtoken import views
 from questionarios.api.viewset import QuestionarioViewSet
 from perguntas.api.viewsets import PerguntaViewSet
 from respostas.api.viewsets import RespostasViewSet
@@ -15,5 +16,6 @@ router.register(r'submissoes', SubmissoesViewSet, basename="Submissoes")
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('api-token-auth/', views.obtain_auth_token)
 ]
