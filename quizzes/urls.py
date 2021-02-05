@@ -5,11 +5,13 @@ from rest_framework import routers
 from questionarios.api.viewset import QuestionarioViewSet
 from perguntas.api.viewsets import PerguntaViewSet
 from respostas.api.viewsets import RespostasViewSet
+from submissoes.api.viewsets import SubmissoesViewSet
 
 router = routers.DefaultRouter()
 router.register(r'respostas', RespostasViewSet, basename="Resposta")
 router.register(r'questionarios', QuestionarioViewSet, basename="Questionario")
 router.register(r'perguntas', PerguntaViewSet, basename="Pergunta")
+router.register(r'submissoes', SubmissoesViewSet, basename="Submissoes")
 
 urlpatterns = [
     path('', include(router.urls)),
